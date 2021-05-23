@@ -1,2 +1,3 @@
-insert into game (id, name, year, genre) values (1, 'Teste', '2021', 'Genero Teste')
-insert into game (id, name, year, genre) values (2, 'Teste 2', '2022', 'Genero Teste2')
+insert into game (name, year, genre) values ('League of Legends', '2009', 'MOBA')
+insert into game (name, year, genre) values ('Euro Truck Simulator 2', '2012', 'Simulador')
+insert into game (name, year, genre) values ('GTA V', '2013', 'Ação')

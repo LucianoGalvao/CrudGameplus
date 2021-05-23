@@ -1,19 +1,68 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>GamePlus</title>
-</head>
-<body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x"
+      crossorigin="anonymous"
+    />
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap"
+      rel="stylesheet"
+    />
+    <script src="https://unpkg.com/feather-icons"></script>
+    <style>
+      body {
+        position: absolute;
+        right: 40%;
+        top: 25%;
+        background-image: url("https://techareas.net/wp-content/uploads/2020/07/republic-of-gamer-logo-4k-hd-computer-4k-wallpapers-images-4k-gaming-logo-wallpaper-scaled.jpg");
+        background-size: cover;
+        color: white;
+        font-family: "Roboto", sans-serif;
+      }
+    </style>
+    <title>Game+</title>
+  </head>
+  <body>
+    <h1>Game+</h1>
 
-    <h1>Gameplus</h1>
-    
-    <ul>
-        <li th:each="game : ${lista}" th:text="${game.name}"></li>
-    </ul>
+    <div class="container">
+      <ul>
+        <li th:each="game : ${lista}" style="margin: 5px">
+          <span
+            th:text="${game.name} + ' (' + ${game.year} + ')'"
+            style="text-decoration: none; color: white"
+          ></span>
+          <a th:href="@{/detalhes/{id}(id=${game.id})}"
+            ><button class="btn btn-primary btn-sm">Visualizar</button></a
+          >
+          <a th:href="@{/editar/{id}(id=${game.id})}"
+            ><button class="btn btn-success btn-sm">Editar</button></a
+          >
+          <a th:href="@{/deletar/{id}(id=${game.id})}"
+            ><button class="btn btn-danger btn-sm">Deletar</button></a
+          >
+        </li>
+      </ul>
+    </div>
+    <a href="/cadastro"
+      ><button
+        class="btn btn-info"
+        style="margin-top: 10px; position: absolute; left: 35%"
+      >
+        <i data-feather="plus" style="padding-bottom: 3px"></i>
+        Novo Jogo
+      </button></a
+    >
 
-    <a href="/cadastro">Novo Jogo</a>
-</body>
+    <script>
+      feather.replace();
+    </script>
+  </body>
 </html>
